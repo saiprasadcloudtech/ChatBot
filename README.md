@@ -57,4 +57,19 @@ step 8 : remove the public s3 access section from the above policy . This will a
 
 step 9 : Try accessing the text.html using the cloud front domain name and it should work
 
+step 10 : Now we need to create a backend API using API gateway so that we can mock our API. Once our mock is wired up and we have tested our website
+            we can then think of creating a API that can hit the backend database or run a function.
+step 11 : Create a REST endpoint with API gatway to Mock the API and check if it is working 
+
+step 12 : We need to enable Cross origin resource sharing (CORS) as the cloudfront domain name is the API gateway Domain name are different and the browser will act                cranky when you try to go across domains
+
+step 13 : click action and choose deploy API . You will get a invole URL and need to copy and save that info
+
+step 14 : Now we need to wire up mock API to our website
+          go the config.js object file which is inside your bucket and replace null with the invoke url as shown below
+          var API_GATEWAY_URL_STR = "https://Your-Invoke-URL.execute-api.us-east-1.amazonaws.com/test";
+          before saving remember to set cache-control to max age=0
+          
+step 15: browse the cloud front URL and choose the city. It will give an output as set in our mock API . Now we have a Mock API intercating with our website
+
 
