@@ -22,3 +22,31 @@ step 3 : select permission tab and select bucket policy. paste the below code wi
 }
 
 step 4 : upload the objects that make the front end design into the bucket 
+step 5 : under metadata section For header choose cache-control and for value enter max-age=0 and save
+step 6 : create a cloud front distribution to overcome the latency problem for people across the globe.
+step 7 : Once cloud front is create go to the bucket policy under permission and you will see something like this
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddPerm",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::2019-03-01-er-website/*"
+        },
+        {
+            "Sid": "2",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E1KO2GAPIWFF7X"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::2019-03-01-er-website/*"
+        }
+    ]
+}
+
+step 8 : remove the public s3 access section from the above policy . This will allow only cloud front to access s3 bucket.
+step 9 : Try accessing the text.html using the cloud front domain name 
+
