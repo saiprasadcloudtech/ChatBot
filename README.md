@@ -131,4 +131,27 @@ step 20 : now we have to replace the API mock end point with lambda function
   step 21: click action and deploy API . set development stage to Test and Deploy 
            WE can now try accessing the cloudfront website and choose any city. It will respond as 74 
             
+  Introducing a Database as a backend 
+  step 22 : now we need to create a new lambda function so that it can query the database to get the weather information
+            > create a dynamoDB table 
+            > Once database is created, we will create a lambda function that will take take a CSV file and parse it and throw it into the dynamoDB table
+            > once we finish coding and creating a new file CSV file with data in it under the lambda function we try to TEST the function and check if the csv data                 is loaded into the dynamoDB . If the execution result is succeeded that means data is loaded into the database
+  step 23 : we have to confirm from the database end as well . hence we login to dynamoDB and open the table and check the table item by going to items tab. 
+            > change scan to query and try with any city name and it will give us the result with the temerature 
+  step 24 : we can now delete the lambda fucntion which we used to seed the csv file.
+  
+  step 25 : we now do changes to the main lambda function so that it can query the database and return the temperature. We can now test the lambda function by                     choosing configure test event 
+            FOr example : {
+                             "city_str": "DENVER"
+                          }
+                         This should return 
+                           {
+                            "temp_int": 38,
+                             "city_str": "DENVER"
+                             }
+            We the confirm the same from the cloud front URL by entering a city and it will return the temperature of the city.
+  
+  FInally we have a serverless data driven text weather app running in a global content delivery network for low latency with DynamoDB as a backend.
+                          
             
+  
