@@ -1,4 +1,4 @@
-Project Description: In this project I will be creating a web based application that can figure out the temperature when we tell it a particular city. To accomplish a project of this sort we may need a back end serverless database(DynamoDB) , s3 bucket( static website hosting) and lambda fuction, Cloud front, API gateway, Amazon Lex to create a Chat Bot.
+Project Description: In this project I will be creating a web based application that can figure out the temperature when we tell it a particular city. To accomplish a project of this sort we may need a back end serverless database(DynamoDB) , s3 bucket( static website hosting) and lambda fuction, Cloud front, API gateway.
 Below are the steps to accumplish this project
 
 step 1 : Create a S3 bucket and configure it as a static website.   
